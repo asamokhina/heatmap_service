@@ -5,7 +5,9 @@ Application that displays heatmaps. `Heatmap service` is a Python web applicatio
 ### Requirements
 
 Python 3.9+
+
 Node.js 14+
+
 Docker
 
 ### Installation
