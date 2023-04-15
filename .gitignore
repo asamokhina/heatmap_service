@@ -1,0 +1,5 @@
+__pycache__/
+.ipynb_checkpoints
+.env
+.mypy_cache/
+client/node_modules

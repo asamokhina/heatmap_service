@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "polygon-heatmap"
+version = "0.1.0"
+description = ""
+authors = ["asamokhina <nastya.samokhina@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+psycopg2-binary = "^2.9.6"
+sqlalchemy = "^2.0.9"
+geoalchemy2 = "^0.13.1"
+fastapi = "^0.95.0"
+pandas = "^2.0.0"
+uvicorn = {extras = ["standard"], version = "^0.21.1"}
+geopandas = "^0.12.2"
+shapely = "^2.0.1"
+pydantic = "^1.10.7"
+pytest = "^7.3.0"
+httpx = "^0.24.0"
+requests = "^2.28.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

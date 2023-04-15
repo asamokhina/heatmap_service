@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  db:
+    image: postgis/postgis
+    environment:
+      POSTGRES_DB: your_database
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - postgres-data:/var/lib/posgresql/data
+    ports:
+      - "5432:5432"
+  app:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      FE_HOST: feapp
+      DB_NAME: your_database
+      DB_USER: your_username
+      DB_PASSWORD: your_password
+      DATA_SOURCE: /app/data/data.csv
+    volumes:
+      - ./backend/src:/app/src
+      - ./data:/app/data
+    ports:
+      - "8000:8000"
+      - "80:80"
+    # stdin_open: true # docker run -i
+    # tty: true        # docker run -t
+
+  feapp:
+    build: ./client
+    depends_on:
+      - app
+    ports:
+      - "3000:3000"
+volumes:
+  postgres-data:
